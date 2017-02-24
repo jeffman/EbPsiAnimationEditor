@@ -1,0 +1,3 @@
+[submodule "exhal"]
+	path = exhal
+	url = https://github.com/jeffman/exhal
