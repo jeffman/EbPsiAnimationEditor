@@ -61,6 +61,12 @@ command ASMLoadAddress06(Address) {
 	STA_d	(0x08)
 }
 
+command Int24(Value) {
+    byte[0] Value
+    byte[1] Value
+    byte[2] Value
+}
+
 ROM[0xC3F98D] = {
     JMP(0xFE00)
 }
