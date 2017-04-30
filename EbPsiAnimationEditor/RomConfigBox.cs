@@ -40,7 +40,6 @@ namespace EbPsiAnimationEditor
         public RomConfigBox(RomConfig romConfig, int romSize)
         {
             InitializeComponent();
-            rangeEnd.ValueChanged += new EventHandler(rangeStart_ValueChanged);
 
             this.romConfig = romConfig;
 
@@ -150,30 +149,6 @@ namespace EbPsiAnimationEditor
             RangeIndex = 0;
         }
 
-        private void rangeStart_ValueChanged(object sender, EventArgs e)
-        {
-            if (clicking)
-                return;
-
-            int index = RangeIndex;
-            if (RangeIndex == -1)
-                return;
-
-            try
-            {
-                romConfig.FreeRanges.Modify(index, new Range((int)rangeStart.Value, (int)(rangeEnd.Value - rangeStart.Value + 1)));
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                freeRangesList_SelectedIndexChanged(null, null);
-                return;
-            }
-
-            LoadFreeRanges();
-            RangeIndex = index;
-        }
-
         private void freeRangesList_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = RangeIndex;
@@ -221,6 +196,29 @@ namespace EbPsiAnimationEditor
 
             else
                 RangeIndex = index;
+        }
+
+        private void rangeApplyButton_Click(object sender, EventArgs e)
+        {
+            if (clicking)
+                return;
+
+            int index = RangeIndex;
+            if (RangeIndex == -1)
+                return;
+
+            try
+            {
+                romConfig.FreeRanges.Modify(index, new Range((int)rangeStart.Value, (int)(rangeEnd.Value - rangeStart.Value + 1)));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            LoadFreeRanges();
+            RangeIndex = index;
         }
     }
 }

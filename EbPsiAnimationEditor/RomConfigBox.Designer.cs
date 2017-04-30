@@ -63,6 +63,7 @@
             this.startColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.endColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lengthColumn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.rangeApplyButton = new System.Windows.Forms.Button();
             this.parametersGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.psiAnimationCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.psiPalettes)).BeginInit();
@@ -290,6 +291,7 @@
             this.freeRangesGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.freeRangesGroup.Controls.Add(this.rangeApplyButton);
             this.freeRangesGroup.Controls.Add(this.defaultFreeRanges);
             this.freeRangesGroup.Controls.Add(this.deleteRange);
             this.freeRangesGroup.Controls.Add(this.insertRange);
@@ -372,7 +374,6 @@
             this.rangeStart.Name = "rangeStart";
             this.rangeStart.Size = new System.Drawing.Size(75, 20);
             this.rangeStart.TabIndex = 15;
-            this.rangeStart.ValueChanged += new System.EventHandler(this.rangeStart_ValueChanged);
             // 
             // label11
             // 
@@ -426,6 +427,16 @@
             // 
             this.lengthColumn.Text = "Length";
             this.lengthColumn.Width = 80;
+            // 
+            // rangeApplyButton
+            // 
+            this.rangeApplyButton.Location = new System.Drawing.Point(337, 71);
+            this.rangeApplyButton.Name = "rangeApplyButton";
+            this.rangeApplyButton.Size = new System.Drawing.Size(75, 23);
+            this.rangeApplyButton.TabIndex = 25;
+            this.rangeApplyButton.Text = "Apply";
+            this.rangeApplyButton.UseVisualStyleBackColor = true;
+            this.rangeApplyButton.Click += new System.EventHandler(this.rangeApplyButton_Click);
             // 
             // RomConfigBox
             // 
@@ -498,5 +509,6 @@
         private System.Windows.Forms.Button deleteRange;
         private System.Windows.Forms.Button insertRange;
         private System.Windows.Forms.Button defaultFreeRanges;
+        private System.Windows.Forms.Button rangeApplyButton;
     }
 }
