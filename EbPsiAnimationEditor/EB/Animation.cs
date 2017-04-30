@@ -40,7 +40,7 @@ namespace EbPsiAnimationEditor.EB
         {
             this.Tileset = anim.Tileset;
             for (int i = 0; i < anim.Frames.Count; i++)
-                this.Frames.Add(new Frame(anim.Frames[i]));
+                this.Frames.Add(anim.Frames[i]);
             this.Palette = new Palette(anim.Palette);
 
             this.FrameInterval = anim.FrameInterval;
