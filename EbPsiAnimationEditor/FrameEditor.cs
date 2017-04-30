@@ -207,9 +207,7 @@ namespace EbPsiAnimationEditor
 
         protected virtual void OnFrameChanged(FrameChangedEventArgs e)
         {
-            var handler = FrameChanged;
-            if (handler != null)
-                handler(this, e);
+            FrameChanged?.Invoke(this, e);
         }
 
         private void frameBox_MouseMove(object sender, MouseEventArgs e)
