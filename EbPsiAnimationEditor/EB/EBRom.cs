@@ -166,8 +166,8 @@ namespace EbPsiAnimationEditor.EB
                 compressedTilesets[i] = Exhal.Comp(Tilesets[i].Write(), fastCompress);
                 int tilesetAddress = freeRanges.Allocate(compressedTilesets[i].Length, new Range(0xC0000, 0x10000));
 
-                //if (tilesetAddress == -1)
-                    //goto AllocationError;
+                if (tilesetAddress == -1)
+                    ThrowAllocationError();
 
                 tilesetCache.Add(Tilesets[i], tilesetAddress);
                 tilesetPointers[i] = tilesetAddress;
@@ -199,7 +199,7 @@ namespace EbPsiAnimationEditor.EB
                 int framesAddress = freeRanges.Allocate(compressedFrames[i].Length);
 
                 if (framesAddress == -1)
-                    goto AllocationError;
+                    ThrowAllocationError();
 
                 framesPointers[i] = framesAddress;
             }
@@ -215,8 +215,10 @@ namespace EbPsiAnimationEditor.EB
             }
 
             return;
+        }
 
-        AllocationError:
+        private static void ThrowAllocationError()
+        {
             throw new Exception("Could not allocate enough space for compressed data. Add more entries to the list of free ranges.");
         }
 
