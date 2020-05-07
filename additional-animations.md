@@ -107,7 +107,7 @@ If you're not using CoilSnake, or for whatever reason don't want to use CCScript
 
 1. Open your hex editor and go to 0x3FE00, and paste the following 32 bytes:
 `C9 FF FF F0 18 C9 23 00 90 0B C9 36 00 B0 03 4C 9B F9 E9 14 00 85 02 A5 02 22 16 E1 C2 4C C7 FA`
-2. Go to 0x3F98E and paste the following 2 bytes: `00 FE`
+2. Go to 0x3F98D and paste the following 3 bytes: `4C 00 FE`
 3. Recall the address of the new configuration table (0x320000 in our example). In your mind, convert it to a SNES address and split the result into four bytes: 00 F2 00 00. Call these four bytes Alice, Bob, Chris, and MrTenda. Go to 0x2E34F and paste the following 10 bytes: `A9 [MrTenda] [Chris] 85 06 A9 [Bob] [Alice] 85 08`. In our example, we would paste `A9 00 00 85 06 A9 F2 00 85 08`.
 4. Go to 0x2E461 and _repeat step 3 **using the new pointer table address**_ (0x320400 in our example).
 5. Go to 0x2E2F4 and _repeat step 3 **using the new palette table address**_ (0x320600 in our example).
